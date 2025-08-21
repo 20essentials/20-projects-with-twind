@@ -1,0 +1,183 @@
+---
+import { baseUrl } from '@/utils/functions';
+
+const arrayCards = [
+  {
+    title: 'Languages',
+    repo: 'https://github.com/20essentials/project-000-472',
+    localImage: '/assets/images/n472.avif',
+    id: '001'
+  },
+  {
+    title: 'Luna',
+    repo: 'https://github.com/20essentials/project-000-495',
+    localImage: '/assets/images/n495.avif',
+    id: '002'
+  },
+  {
+    title: 'Ultra Pattern',
+    repo: 'https://github.com/20essentials/project-000-486',
+    localImage: '/assets/images/n486.avif',
+    id: '003'
+  },
+  {
+    title: 'Tiras',
+    repo: 'https://github.com/20essentials/project-000-521',
+    localImage: '/assets/images/n521.avif',
+    id: '004'
+  },
+  {
+    title: 'MiniLanding',
+    repo: 'https://github.com/20essentials/project-000-532',
+    localImage: '/assets/images/n532.avif',
+    id: '005'
+  },
+  {
+    title: 'Endless',
+    repo: 'https://github.com/20essentials/project-000-460',
+    localImage: '/assets/images/n460.avif',
+    id: '006'
+  },
+  {
+    title: 'Lovers',
+    repo: 'https://github.com/20essentials/project-000-549',
+    localImage: '/assets/images/n549.avif',
+    id: '007'
+  },
+  {
+    title: 'Multix',
+    repo: 'https://github.com/20essentials/project-000-479',
+    localImage: '/assets/images/n479.avif',
+    id: '008'
+  },
+  {
+    title: 'OnMix',
+    repo: 'https://github.com/20essentials/project-000-559',
+    localImage: '/assets/images/n559.avif',
+    id: '009'
+  },
+  {
+    title: 'Zus',
+    repo: 'https://github.com/20essentials/project-000-465',
+    localImage: '/assets/images/n465.avif',
+    id: '010'
+  },
+  {
+    title: 'Skyfall Beat',
+    repo: 'https://github.com/20essentials/project-000-567',
+    localImage: '/assets/images/n567.avif',
+    id: '011'
+  },
+  {
+    title: 'Rutin',
+    repo: 'https://github.com/20essentials/project-000-480',
+    localImage: '/assets/images/n480.avif',
+    id: '012'
+  },
+  {
+    title: 'Reflex',
+    repo: 'https://github.com/20essentials/project-000-574',
+    localImage: '/assets/images/n574.avif',
+    id: '013'
+  },
+  {
+    title: 'Sud',
+    repo: 'https://github.com/20essentials/project-000-487',
+    localImage: '/assets/images/n487.avif',
+    id: '014'
+  },
+  {
+    title: 'Hojas',
+    repo: 'https://github.com/20essentials/project-000-582',
+    localImage: '/assets/images/n582.avif',
+    id: '015'
+  },
+  {
+    title: 'NightCall',
+    repo: 'https://github.com/20essentials/project-000-588',
+    localImage: '/assets/images/n588.avif',
+    id: '016'
+  },
+  {
+    title: 'Requiem',
+    repo: 'https://github.com/20essentials/project-000-473',
+    localImage: '/assets/images/n473.avif',
+    id: '017'
+  },
+  {
+    title: 'Rut',
+    repo: 'https://github.com/20essentials/project-000-594',
+    localImage: '/assets/images/n594.avif',
+    id: '018'
+  },
+  {
+    title: 'Colegio',
+    repo: 'https://github.com/20essentials/project-000-603',
+    localImage: '/assets/images/n603.avif',
+    id: '019'
+  },
+  {
+    title: 'Redux',
+    repo: 'https://github.com/20essentials/project-000-481',
+    localImage: '/assets/images/n481.avif',
+    id: '020'
+  }
+];
+---
+
+<script>
+  import gsap from 'gsap';
+  import ScrollTrigger from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils.toArray<HTMLElement>('.card').forEach(card => {
+    gsap.from(card, {
+      filter: 'blur(3vmax)',
+      ease: 'power2.inOut',
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      scrollTrigger: {
+        trigger: card,
+        start: 'clamp(top 96%)',
+        end: 'clamp(top 80%)',
+        scrub: true,
+      }
+    });
+  });
+</script>
+
+<section class='am-section'>
+  {
+    arrayCards.map(({ id, localImage, repo, title }) => (
+      <a class='card' href={repo}>
+        <img src={baseUrl(localImage)} alt='Img' />
+      </a>
+    ))
+  }
+</section>
+
+<style>
+  .am-section {
+    min-height: 100vh;
+    display: grid;
+    padding: 2.2vmax;
+    gap: 2.2vmax;
+    display: grid;
+    z-index: 5;
+    grid-template-columns: repeat(auto-fit, minmax(17vmax, 1fr));
+
+    .card {
+      min-width: 18vmax;
+      width: 100%;
+      filter: blur(0vmax);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,13 @@
+---
+import { baseUrl } from '@/utils/functions';
+const audioUrl = baseUrl('/assets/music/Voxel Revolution.mp3');
+---
+
+<div id='container' class="am-container-canvas">
+  <canvas id='canvas' width='0' height='0'></canvas>
+</div>
+
+<audio id='music' src={audioUrl} autoplay loop></audio>
+<div id='controls'>
+  <div id='volume' class='control' title='Toggle the music'></div>
+</div>

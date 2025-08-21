@@ -1,0 +1,41 @@
+---
+import { baseUrl } from '@/utils/functions';
+const logo = baseUrl('/assets/images/twind-logo.svg');
+---
+
+<section>
+  <h1 id='logo'>20 Projects with Twind <img src={logo} alt='Logo' /></h1>
+</section>
+<style>
+  section {
+    height: 100vh;
+  }
+
+  #logo {
+    font-family: 'Racing Sans One';
+    font-weight: 400;
+    color: #fff;
+    text-shadow: #00d9ff 0 0 32px;
+    mix-blend-mode: screen;
+  }
+
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5vmax;
+    width: 80%;
+    text-align: center;
+    text-wrap: balance;
+    color: transparent;
+    background-image: var(--gradient);
+    background-clip: text;
+
+    img {
+      width: 4vmax;
+      isolation: isolate;
+      transform: translateY(0.3vmax);
+    }
+  }
+</style>
