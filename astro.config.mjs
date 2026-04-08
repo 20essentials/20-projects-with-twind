@@ -1,6 +1,5 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-
 import react from '@astrojs/react';
 
 // https://astro.build/config
@@ -8,17 +7,10 @@ export default defineConfig({
   build: {
     assets: 'static'
   },
-
-  //Deploy normal project
-  // base: '/project-1138/',
-  // site: 'https://20essentials.github.io/project-1138/',
-
-  //Deploy 20 Projects
-  base: '/20-projects-with-twind/',
-  site: 'https://20essentials.github.io/20-projects-with-twind/',
-
-  //Localhost
-  // site: 'http://localhost:4321/',
+  base: import.meta.env.DEV ? undefined : '/20-projects-with-twind/',
+  site: import.meta.env.DEV
+    ? 'http://localhost:4321/'
+    : 'https://20essentials.github.io/20-projects-with-twind/',
 
   integrations: [react()]
 });
